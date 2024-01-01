@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BMI Calculator</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/">BMI App</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/bmicalculator"
+                                >BMI Calculator</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/history">History</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container mt-4">
+            <form action="/bmicalculator" method="post">
+                <div class="form-group">
+                    <label for="height">Height (cm):</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="height"
+                        name="height"
+                        required
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        id="weight"
+                        name="weight"
+                        required
+                    />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Calculate BMI
+                </button>
+            </form>
+
+            <div id="result" class="mt-4"></div>
+        </div>
+        <footer class="mt-5 text-center">
+            <p>Created by Ananyan Karen | SE-2203 AITU</p>
+        </footer>
+        <script>
+            function updateResult(result) {
+                const resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = `<h4>BMI Result: ${result}</h4>`;
+            }
+
+            function getQueryParams() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get("res");
+            }
+
+            window.addEventListener("DOMContentLoaded", () => {
+                const resultParam = getQueryParams();
+                if (resultParam) {
+                    updateResult(resultParam);
+                }
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>
