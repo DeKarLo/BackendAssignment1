@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const bmiRoutes = require("./public/routes/bmiRoutes");
+const chalk = require("chalk");
 const app = express();
 const port = 3000;
 
@@ -18,5 +19,5 @@ app.get("/history", (req, res) => {
 app.use("/bmicalculator", bmiRoutes);
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(chalk.green(`Server is running on port ${port}`));
 });

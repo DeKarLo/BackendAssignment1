@@ -56,32 +56,7 @@
         <footer class="mt-5 text-center">
             <p>Created by Ananyan Karen | SE-2203 AITU</p>
         </footer>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                fetch("../data/history.json")
-                    .then((response) => response.json())
-                    .then((historyData) => {
-                        const tbody = document.querySelector("tbody");
-
-                        historyData.forEach((entry) => {
-                            const row = document.createElement("tr");
-
-                            const timestampCell = document.createElement("td");
-                            timestampCell.textContent = entry.time;
-                            row.appendChild(timestampCell);
-
-                            const bmiCell = document.createElement("td");
-                            bmiCell.textContent = entry.bmi;
-                            row.appendChild(bmiCell);
-
-                            tbody.appendChild(row);
-                        });
-                    })
-                    .catch((error) =>
-                        console.error("Error fetching history data:", error)
-                    );
-            });
-        </script>
+        <script src="../js/history.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
